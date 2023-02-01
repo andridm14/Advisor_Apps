@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Advisor Apps</string>
+    <string name="stnk">Nomor STNK</string>
+    <string name="id_user">ID Anda</string>
+    <string name="model">Model Kendaraan</string>
+    <string name="jenis_service">Jenis Service</string>
+    <string name="keluhan">Keluhan</string>
+    <string name="daftar">Daftar Service</string>
+    <string name="tambahkan_kendaraan">Tambahkan Kendaraan</string>
 </resources>

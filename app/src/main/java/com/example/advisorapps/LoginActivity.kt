@@ -1,6 +1,7 @@
 package com.example.advisorapps
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -18,11 +19,25 @@ class LoginActivity : AppCompatActivity() {
     private var binding : ActivityLoginBinding? = null
     private var user : String = ""
     private var pass : String = ""
+    lateinit var profil : SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
+
+        //cek session
+        profil = getSharedPreferences("login_session", MODE_PRIVATE)
+        if (profil.getString("username", null) !== null){
+            if (profil.getString("role", null) == "1"){
+                startActivity(Intent(this@LoginActivity,
+                    MainActivityForeman::class.java))
+                finish()
+            }else{
+                startActivity(Intent(this@LoginActivity,
+                    MainActivity::class.java))
+            }
+        }
 
         binding!!.btnLogin.setOnClickListener {
             user = binding!!.textUsername.text.toString()
@@ -49,6 +64,15 @@ class LoginActivity : AppCompatActivity() {
             override fun onResponse(call: Call<ResponseLogin>, response: Response<ResponseLogin>) {
                 if (response.isSuccessful){
                     if (response.body()?.response == true){
+
+                        //buat session
+                            getSharedPreferences("login_session", MODE_PRIVATE)
+                                .edit()
+                                .putString("username", response.body()?.payload?.username)
+                                .putString("nm_user", response.body()?.payload?.nm_user)
+                                .putString("role", response.body()?.payload?.role)
+                                .apply()
+
                         if (response.body()?.payload?.role == "1"){
                             binding!!.progressLogin.visibility = View.GONE
                             startActivity(Intent(this@LoginActivity,

@@ -16,4 +16,10 @@ class RetrofitClient {
     fun getInstance(): LoginApiClient {
         return getRetrofitClient().create(LoginApiClient::class.java)
     }
+    fun getInfo(): InfoApiClient{
+        return getRetrofitClient().create(InfoApiClient::class.java)
+    }
+    fun getPem(): PemApiClient{
+        return getRetrofitClient().create(PemApiClient::class.java)
+    }
 }

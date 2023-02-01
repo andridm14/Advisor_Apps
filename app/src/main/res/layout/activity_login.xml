@@ -74,7 +74,7 @@
             android:textStyle="bold"
             android:textColor="@color/white"
             android:textSize="14sp"
-            android:background="@drawable/btn_login"
+            android:background="@drawable/btn_login_cus"
             android:text="Login"/>
 
     </LinearLayout>
