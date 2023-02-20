@@ -1,7 +1,8 @@
 package com.example.advisorapps.infoServis
 
 data class ResponseInfo (
-        val pgj : String,
-        val ket : String,
-        val estimasi : String
+        val id_servis : String?,
+        val pgj : String?,
+        val ket : String?,
+        val estimasi : String?
         )

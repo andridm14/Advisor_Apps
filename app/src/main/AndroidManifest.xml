@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -16,7 +16,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".LoginActivity"
+            android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,14 +28,22 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".MainActivityForeman"/>
-        <activity android:name=".MainActivityProfileUser"/>
-        <activity android:name=".MainService"/>
-        <activity android:name=".MainInfoService"/>
-        <activity android:name=".MainPemberitahuan"/>
-        <activity android:name=".MainLaporan"/>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".RegistrasiActivity" />
+        <activity android:name=".MainKendaraan" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivityForeman" />
+        <activity android:name=".MainActivityProfileUser" />
+        <activity android:name=".MainService" />
+        <activity android:name=".MainInfoService" />
+        <activity android:name=".MainPemberitahuan" />
+        <activity android:name=".MainLaporan" />
+        <activity android:name=".MainPayment" />
+        <activity android:name=".MainGanti" />
+        <activity android:name=".MainSaranForeman" />
+        <activity android:name=".MainServiceForeman" />
+        <activity android:name=".MainItemForeman" />
+        <activity android:name=".MainUpItemForeman"/>
     </application>
 
 </manifest>

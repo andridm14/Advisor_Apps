@@ -68,6 +68,7 @@ class LoginActivity : AppCompatActivity() {
                         //buat session
                             getSharedPreferences("login_session", MODE_PRIVATE)
                                 .edit()
+                                .putString("id_user", response.body()?.payload?.id_user)
                                 .putString("username", response.body()?.payload?.username)
                                 .putString("nm_user", response.body()?.payload?.nm_user)
                                 .putString("role", response.body()?.payload?.role)

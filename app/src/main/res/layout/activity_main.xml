@@ -71,11 +71,7 @@
         android:padding="5dp"
         android:layout_marginTop="185dp">
         <ImageView
-            android:layout_width="190dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/car_repair"/>
-        <ImageView
-            android:layout_width="190dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/car_repair"/>
     </LinearLayout>
@@ -104,37 +100,37 @@
             android:textStyle="bold"/>
 
         <ImageView
-            android:id="@+id/img_monitoring"
+            android:id="@+id/img_pemberitahuan"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginTop="10dp"
             android:layout_marginStart="50dp"
             android:layout_toEndOf="@id/img_service"
-            android:src="@drawable/ic_baseline_car_repair_24"
-            android:background="@drawable/bg_img_service"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="130dp"
-            android:layout_below="@+id/img_monitoring"
-            android:text="Monitoring Service"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            android:textStyle="bold"/>
-
-        <ImageView
-            android:id="@+id/img_pemberitahuan"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_below="@+id/img_service"
-            android:layout_marginTop="40dp"
             android:src="@drawable/ic_car_alert_24"
             android:background="@drawable/bg_img_service"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="130dp"
             android:layout_below="@+id/img_pemberitahuan"
-            android:text="Informasi Service"
+            android:text="Pengecekan"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/img_monitoring"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_below="@+id/img_service"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/ic_baseline_car_repair_24"
+            android:background="@drawable/bg_img_service"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_monitoring"
+            android:text="Monitoring Service"
             android:textColor="@color/black"
             android:textSize="12sp"
             android:textStyle="bold"/>
@@ -143,8 +139,8 @@
             android:id="@+id/img_report"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_below="@+id/img_monitoring"
-            android:layout_toEndOf="@+id/img_pemberitahuan"
+            android:layout_below="@+id/img_pemberitahuan"
+            android:layout_toEndOf="@+id/img_monitoring"
             android:layout_marginTop="40dp"
             android:layout_marginStart="50dp"
             android:src="@drawable/ic_baseline_feed_24"

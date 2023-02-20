@@ -1,5 +1,6 @@
 package com.example.advisorapps
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -21,8 +22,11 @@ class MainInfoService : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         binding = ActivityInfoServiceBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         list = ArrayList()
+
+        binding.Back.setOnClickListener {
+            startActivity(Intent(this@MainInfoService, MainActivity::class.java))
+        }
 
         binding.rvInfo.setHasFixedSize(true)
         binding.rvInfo.layoutManager = LinearLayoutManager(this)
@@ -30,7 +34,7 @@ class MainInfoService : AppCompatActivity(){
         getDataInfo()
     }
 
-    private fun getDataInfo(){
+    fun getDataInfo(){
         val api = RetrofitClient().getInfo()
         api.getinfo().enqueue(object : Callback<ArrayList<ResponseInfo>>{
             override fun onResponse(
@@ -38,7 +42,7 @@ class MainInfoService : AppCompatActivity(){
                 response: Response<ArrayList<ResponseInfo>>
             ) {
                 val responseCode:String = response.code().toString()
-                Log.e(responseCode, "onResponse: ", )
+                Log.i(responseCode, "onResponse: ", )
 
                 response.body()?.let { list.addAll(it) }
                 var adapter = InfoAdapter(list)

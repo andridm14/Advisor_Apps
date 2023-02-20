@@ -18,14 +18,13 @@ class MainActivity : AppCompatActivity() {
 
         profil = getSharedPreferences("login_session", MODE_PRIVATE)
 
-        //menampilkan data
+        //menampilkan nama user
         binding?.tvName?.text = profil.getString("nm_user", null)
 
         //btn logout
         binding?.icExit?.setOnClickListener {
             //hapus session
             profil.edit().clear().commit()
-
             startActivity(Intent(this@MainActivity, LoginActivity::class.java))
             finish()
         }

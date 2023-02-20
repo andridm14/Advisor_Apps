@@ -1,7 +1,8 @@
 package com.example.advisorapps
 
+import android.content.Intent
+import android.os.Bundle
 import android.util.Log
-import android.view.ActionMode
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.advisorapps.api.RetrofitClient
@@ -17,12 +18,15 @@ class MainPemberitahuan : AppCompatActivity() {
     private lateinit var list: ArrayList<ResponsePem>
     lateinit var binding: ActivityPemberitahuanBinding
 
-    override fun onActionModeStarted(mode: ActionMode?) {
-        super.onActionModeStarted(mode)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         binding = ActivityPemberitahuanBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         list = ArrayList()
+
+        binding.back.setOnClickListener {
+            startActivity(Intent(this@MainPemberitahuan, MainActivity::class.java))
+        }
 
         binding.rvPemberitahuan.setHasFixedSize(true)
         binding.rvPemberitahuan.layoutManager = LinearLayoutManager(this)
@@ -30,7 +34,7 @@ class MainPemberitahuan : AppCompatActivity() {
         getDataPem()
     }
 
-    private fun getDataPem(){
+    fun getDataPem(){
         val api = RetrofitClient().getPem()
         api.getpem().enqueue(object : Callback<ArrayList<ResponsePem>>{
             override fun onResponse(
@@ -38,10 +42,14 @@ class MainPemberitahuan : AppCompatActivity() {
                 response: Response<ArrayList<ResponsePem>>
             ) {
                 val responseCode: String = response.code().toString()
-                Log.e(responseCode, "onResponse: ", )
+                Log.i(responseCode, "onResponse:" )
 
                 response.body()?.let { list.addAll(it) }
-                var adapter = PemAdapter(list)
+                var adapter = PemAdapter(list){
+                    Intent(this@MainPemberitahuan, MainGanti::class.java).apply {
+                        startActivity(this)
+                    }
+                }
                 binding.rvPemberitahuan.adapter = adapter
             }
 
@@ -51,4 +59,5 @@ class MainPemberitahuan : AppCompatActivity() {
 
         })
     }
+
 }

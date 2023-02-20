@@ -2,9 +2,9 @@ package com.example.advisorapps.pemServis
 
 data class ResponsePem (
 
-        val pgj :String,
-        val tgl  :String,
-        val saran_at :String,
-        val saran_n  :String
+        val model :String,
+        val jenis_servis :String,
+        val keluhan :String,
+        val saran :String,
 
         )

@@ -7,4 +7,12 @@
     <string name="keluhan">Keluhan</string>
     <string name="daftar">Daftar Service</string>
     <string name="tambahkan_kendaraan">Tambahkan Kendaraan</string>
+    <string name="title_activity_splashscreen">SplashscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="nomor_stnk">Nomor STNK</string>
+    <string name="id_anda">ID Anda</string>
+    <string name="warna">Warna</string>
+    <string name="tahun">Tahun</string>
+    <string name="model_kendaraan">Model Kendaraan</string>
 </resources>
